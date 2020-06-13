@@ -1,0 +1,21 @@
+- hosts: docker 
+  remote_user: root 
+
+  tasks:
+    - name:  docker install
+      shell: sudo yum install -y yum-utils
+    - shell: sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    - shell: sudo yum makecache fast
+    - shell: sudo yum install docker-ce-19.03.1 docker-ce-cli-19.03.1 containerd.io -y
+
+    - name: docker config dir
+      shell: sudo mkdir -p /etc/docker
+
+    - name: file transfer
+      copy: src=/root/daemon.json backup=yes dest=/etc/docker/daemon.json 
+      notify: 
+      - restart docker
+
+  handlers:
+    - name: restart docker
+      service: name=docker enabled=yes daemon_reload=yes state=restarted
