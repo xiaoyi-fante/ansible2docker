@@ -1,7 +1,8 @@
 # ansible2docker
 Through Ansible playbook to install docker 19.03.1
 
-```[root@localhost docker]# ansible-playbook docker_install.yaml
+```
+[root@localhost docker]# ansible-playbook docker_install.yaml
 
 PLAY [docker] ************************************************************************************************************
 
@@ -28,10 +29,12 @@ TASK [file transfer] ***********************************************************
 ok: [10.211.55.8]
 
 PLAY RECAP ***************************************************************************************************************
-10.211.55.8                : ok=7    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0```
+10.211.55.8                : ok=7    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
 
 On the remote server
-```[root@8 Dockerfile]# docker info
+```
+[root@8 Dockerfile]# docker info
 Client:
  Debug Mode: false
 
@@ -45,4 +48,5 @@ Server:
  Cgroup Driver: cgroupfs
   ...
  Docker Root Dir: /data/docker
-  ...```
+  ...
+ ```
