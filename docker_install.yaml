@@ -12,7 +12,7 @@
       shell: sudo mkdir -p /etc/docker
 
     - name: file transfer
-      copy: src=/root/docker/daemon.json backup=yes dest=/etc/docker/daemon.json 
+      copy: src=/root/docker/ansible2docker/daemon.json backup=yes dest=/etc/docker/daemon.json 
       notify: 
       - restart docker
 
